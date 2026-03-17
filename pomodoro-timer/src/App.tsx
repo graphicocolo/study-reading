@@ -1,4 +1,4 @@
-// アプリの入り口となるファイル hooks と components をつなぐ場所
+// アプリの入り口となるファイル hooks （ロジック）と components （UI）をつなぐ場所
 // hooks から受け取った値や関数を、components に props として渡している。「hooks で作ったロジックが、どうやって画面部品に届くのか」がわかるファイル
 
 import { useCallback, useEffect } from 'react'

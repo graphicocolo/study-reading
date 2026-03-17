@@ -1,4 +1,9 @@
 // UI のテーマ設定を管理するカスタムフック
+// useTheme.ts の役割 「状態の管理」と「ロジック」をすべて担う
+// localStorage への保存・読み込み
+// OS のダークモード設定の監視
+// theme の状態管理（useState）
+// toggleTheme 関数（light ↔ dark の切り替え処理）
 import { useState, useCallback, useEffect } from 'react'
 import type { Theme } from '@/types/timer' // テーマの型定義
 import { STORAGE_KEYS } from '@/lib/constants' // ローカルストレージのキー定数
@@ -98,6 +103,8 @@ export function useTheme(): UseThemeReturn {
   }, [])
 
   // テーマ設定
+  // 現在 setTheme はどこにも使われていない
+  // 将来的に例えば設定パネルにテーマ選択ドロップダウンを追加するような拡張に備えて用意された関数
   const setTheme = useCallback((newTheme: Theme) => {
     setThemeState(newTheme)
   }, [])

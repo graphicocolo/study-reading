@@ -40,7 +40,7 @@ localStorage永続化・全操作のメモ化
 - `useCallback` で全操作をメモ化している理由（再レンダリング抑制）
 - `togglePin` の中の上限チェックのロジック
 
-- [ ] src/hooks/useNotes.ts
+- [x] src/hooks/useNotes.ts
 
 ## ④ App.tsx
 

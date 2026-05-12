@@ -288,3 +288,84 @@ study-reading/stickynote/src/components/ColorPicker.tsx
 - 現在の色情報
 - イベントハンドラ
   - 色切り替え
+
+---
+
+study-reading/stickynote/src/components/Header.tsx
+
+## 何をしているコードか
+
+アプリヘッダー表示の役割を担うコード
+
+アプリタイトル、付箋の数、固定された付箋の数（3件がmaxの数として現在定義されている、*/3という表示となっている）、付箋追加ボタンで表示構成されている
+
+付箋の数、固定された付箋の数、付箋追加のイベントハンドラは、親 App.tsx 経由で useNote.ts から `state` や関数を受け取って処理される
+
+### コードの流れ
+
+- 関係データの import
+  - アイコン
+  - 定数（固定上限数）
+- props の型定義
+- ヘッダー UI
+  - アプリタイトル
+  - 付箋の数
+  - 固定された付箋の数
+  - 付箋追加ボタン
+
+### props の内容
+
+- 付箋数
+- 固定された付箋数
+- 追加イベント
+
+---
+
+study-reading/stickynote/src/components/WelcomeScreen.tsx
+
+## 何をしているコードか
+
+付箋が0件の時に表示される空状態画面
+
+装飾アイコン、タイトルや機能説明、付箋追加ボタンが表示される
+
+付箋追加のイベントハンドラは、親 App.tsx 経由で useNote.ts から受け取っている
+
+### コードの流れ
+
+- 関係データの import
+  - アイコン
+- props の型定義
+- 機能紹介箇所表示内容を配列として定義
+- 空状態画面 UI
+  - 装飾アイコン
+  - タイトル
+  - 機能説明
+  - 付箋追加ボタン
+
+### props の内容
+
+- 追加イベント
+
+---
+
+study-reading/stickynote/src/lib/utils.ts
+
+## 何をしているコードか
+
+Tailwind のクラス競合を解決して、条件付きクラス適用を可能にするコード
+
+cn 関数を使って基本のクラスに加えて条件つきクラスが簡潔に追加できる
+
+study-reading/stickynote/src/components/StickyNote.tsx で使われている（付箋ドラッグ中か否か、付箋固定中か否かで条件つきクラスを実装）
+
+### コードの流れ
+
+- 関係データの import
+- cn 関数を定義して export
+
+### 引数
+
+- Tailwind クラス文字列
+
+際のコードは `...inputs: ClassValue[]` で、文字列・配列・オブジェクトなど複数の形式を受け取れる可変長引数

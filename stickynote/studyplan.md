@@ -66,23 +66,23 @@ hooks の返り値を components に props として配る「橋渡し」ファ�
 
 - [x] src/components/ColorPicker.tsx
 
-## ⑦ components/Header.tsx ← **今このテーマを学習中**  🔥 現在地
+## ⑦ components/Header.tsx
 
 固定ヘッダー（Glassmorphism デザイン）。付箋数・固定数の表示と「追加」ボタンを担う。
 
-- [ ] src/components/Header.tsx
+- [x] src/components/Header.tsx
 
 ## ⑧ components/WelcomeScreen.tsx
 
 付箋が0件のときに表示する空状態画面。シンプルな表示コンポーネント。
 
-- [ ] src/components/WelcomeScreen.tsx
+- [x] src/components/WelcomeScreen.tsx
 
-## ⑨ lib/utils.ts
+## ⑨ lib/utils.ts ← **今このテーマを学習中**  🔥 現在地
 
 `cn()` ユーティリティ（clsx + tailwind-merge）。ポモドーロと同じパターン。
 
-- [ ] src/lib/utils.ts
+- [x] src/lib/utils.ts
 
 ---
 

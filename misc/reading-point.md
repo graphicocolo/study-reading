@@ -15,6 +15,59 @@
 > 間違いがないか確認する
 > なぜ間違ったかを考え、間違った場所と理由をどこかにメモしておく
 
+## やり方
+
+AI が出力したコードが書かれたファイルに自分で書き込みながら理解していく
+
+```txt
+// 記載例
+
+// 全体の流れ
+// ----------
+// 1. 型定義
+//  - EmailValidationResult
+//  - ValidationRule
+// 2. 定数定義
+//  - MAX_EMAIL_LENGTH
+//  - MAX_LOCAL_LENGTH
+//  - LOCAL_PART_REGEX
+//  - DOMAIN_LABEL_REGEX
+//  - rules 
+// 3. 関数定義
+//  - splitEmail 
+//  - validateDomain 
+//  - validateEmail 
+//  - validateEmails 
+// 4. export
+//  - 関数 validateEmail, validateEmails
+//  - 型 EmailValidationResult
+
+// 何をしているコードか
+// ----------
+// メールアドレスのバリデーション（単一、複数）
+
+// 特記事項
+// ----------
+// ●良い発想だと思った点
+// 1.
+// ...
+// ●どこがなぜ分かりやすかったか
+// 1. splitEmail()
+// ...
+// ●どこがなぜ分かりにくかったか
+// 1.
+// type ValidationRule の test プロパティは何？無名関数？この型が実際使われている場所を見て、こういうやり方は見たことがなかったのでわかりにくいと感じた
+
+// 1. 型定義
+// ----------
+
+// バリデーション結果の型
+// valid バリデーションにパスしたか否かの結果
+// error? エラーがあればその内容
+type EmailValidationResult = {
+...
+```
+
 ## コツ
 
 1行ずつのセルフ解説（コードレビュー）を加え、さらにそのファイル内のコード全体がどういう流れで記述されているのかを自分の言葉で解説していく
@@ -30,6 +83,11 @@
 2. 次に関数の引数と戻り値の型を見る — splitEmail・validateDomain・validateEmail それぞれ何を受け取って何を返すか
 
 3. 最後に rules 配列と validateEmail のループを読む — 検証がどういう順番で動くか
+
+**読解サポートツール**
+
+- [TypeScript解読アシスタント](https://typescriptbook.jp/code-reading-assistant)
+- [急なTypeScript案件🔥最初の30日間に使い倒したい「コードリーディング支援ツール」](https://qiita.com/suin/items/68e9ba8b8906c6d36e29)
 
 ### React
 

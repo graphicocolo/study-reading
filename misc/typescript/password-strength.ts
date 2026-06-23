@@ -12,8 +12,8 @@
 //  - isPasswordResult 真偽値としてパスワード検査結果の存在確認出力
 //  - formatResult 形式化されたパスワード検査結果出力
 // 4. テスト
-//  - testCases テストデータ
-//  - testCases データをテスト
+//  - passwordTestCases テストデータ
+//  - passwordTestCases データをテスト
 
 // 何をしているコードか
 // ----------
@@ -154,12 +154,12 @@ function formatResult(result: unknown): string {
 // ----------
 
 // テストデータ
-const testCases = ["abc", "Password1", "MyP@ssw0rd", "C0mpl3x!Pass#2024"];
+const passwordTestCases = ["abc", "Password1", "MyP@ssw0rd", "C0mpl3x!Pass#2024"];
 
 // データをテスト
 // テストデータ配列を要素ごとに 要素の値: 形式化された検査結果 の形式でコンソール出力
 // 不合格のものは 未達成: 要素の値, ... としてコンソール出力
-for (const pw of testCases) {
+for (const pw of passwordTestCases) {
   const result = checkPassword(pw);
   console.log(`"${pw}": ${formatResult(result)}`);
   if (result.failed.length > 0) {

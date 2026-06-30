@@ -25,6 +25,39 @@ study-reading/misc/typescript/email-validation.ts と study-reading/misc/typescr
 - 複数の検証を行う場合は、それぞれの検証を複数の関数で定義するのではなく、変数で定義してメインの関数の中でその変数を for ループで検証するスマートなやり方
 - フォーマットごとに正規表現を定義しフォーマット検出、メールアドレスを@を区切りにしてドメインとそれ以外でバリデーション、など、行いたい処理に即して適切に関数定義されている
 
+## モジュール分割と再利用
+
+- バリデーションロジックを専用ファイルに分けて export し、必要な場所で import して組み合わせるのが実務の一般的な設計
+- `email-validation.ts` はすでに `validateEmail` と `EmailValidationResult` を export しているため、そのまま他ファイルから import して使える
+- `password-strength.ts` は現時点で export がないため、import して使うには export の追加が必要
+- `form-validation.ts` のメール・パスワード検証部分を、各専用ファイルからの import に差し替えることができる
+  - `emailValidators` 内で `validateEmail(v)` を呼び出し、その result を使う形に書き直せる
+  - `passwordValidators` 内で `checkPassword(v)` を呼び出し、その result を使う形に書き直せる
+- `export` は実行時に存在する値（関数など）のエクスポート、`export type` は型のみのエクスポート（コンパイル後に消える）
+
+**コード例**
+
+```ts
+import { validateEmail } from "./email-validation";
+import { checkPassword } from "./password-strength"; // エクスポートが必要
+
+// emailValidators の中身を validateEmail に差し替え
+const emailValidators = createValidator<string>(
+  (v) => {
+    const result = validateEmail(v);
+    return result.valid ? null : result.error ?? "無効なメールアドレスです";
+  }
+);
+
+// passwordValidators の中身を checkPassword に差し替え
+const passwordValidators = createValidator<string>(
+  (v) => {
+    const result = checkPassword(v);
+    return result.passed ? null : result.failed.join(", ");
+  }
+);
+```
+
 ## まとめ
 
 - 返り値の型定義をすることで、関数の処理内容が決まる

@@ -29,6 +29,7 @@ ehthumbs.db
 Thumbs.db
 *.pem
 memo.md
+/excluded
 # drizzle.config.ts
 # /src/db
 

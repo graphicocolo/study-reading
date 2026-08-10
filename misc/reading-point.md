@@ -76,6 +76,8 @@ type EmailValidationResult = {
 
 最後に3行で要約する（何をしているコードか）
 
+**読解が終わったら、自身の理解が合っているかの確認と、わからなかった点の質問をする**
+
 ### TypeScript
 
 1. まず型定義だけ見る — EmailValidationResult と ValidationRule が何を表しているか
